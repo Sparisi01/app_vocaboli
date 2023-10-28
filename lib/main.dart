@@ -37,22 +37,33 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final words = [
     {"rubbit", "coniglio"},
-    {"pencil", "penna"}
+    {"pencil", "penna"},
+    {"hello", "ciao"}
   ];
 
   getNewIndex() {
-    index = Random().nextInt(words.length);
+    setState(() {
+      index = Random().nextInt(words.length);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-            child: WordClass(
-                word: words[index].elementAt(0),
-                traduction: words[index].elementAt(1))));
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          getNewIndex();
+        },
+      ),
+      body: Center(
+        child: WordClass(
+            word: words[index].elementAt(0),
+            traduction: words[index].elementAt(1)),
+      ),
+    );
   }
 }

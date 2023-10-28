@@ -7,6 +7,8 @@ class WordClass extends StatelessWidget {
   final String word;
   final String traduction;
 
+  checkTraduction() {}
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -30,13 +32,18 @@ class WordClass extends StatelessWidget {
                 const FractionallySizedBox(
                   widthFactor: 0.8,
                   child: TextField(
-                    obscureText: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Traduzione',
                     ),
                   ),
-                )
+                ),
+                FractionallySizedBox(
+                    widthFactor: 0.8,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text('Check'),
+                    ))
               ]),
         ),
       ),
